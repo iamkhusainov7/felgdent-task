@@ -16,7 +16,7 @@
 <x-breadcrumb pagename="Users">
     <x-slot name="content">
         <li class="list-inline-item"><a href="{{route('user.index')}}">Users</a>&nbsp;<i class="fa fa-angle-right"></i></li>
-        <li class="list-inline-item">Update user</li>
+        <li class="active">Update user</li>
     </x-slot>
 </x-breadcrumb>
 @endsection

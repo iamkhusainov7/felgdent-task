@@ -105,7 +105,6 @@
 @parent
 <script src="{{ asset('assets/plugins/jquery-validation/js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery-validation/js/additional-methods.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/select2/js/select2.js') }}"></script>
 <script>
     var items = @json($groups);
 

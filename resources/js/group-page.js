@@ -15,18 +15,6 @@ const formEdit = $("#edit-group").validate({
     focusInvalid: false, // do not focus the last invalid input
 });
 
-$('.division-select').select2({
-    theme: "material",
-    allowClear: true,
-    placeholder: "Select division"
-});
-
-$('.supervisor-select').select2({
-    theme: "material",
-    allowClear: true,
-    placeholder: "Select supervisor"
-});
-
 $('#create-group').on('submit', async (e) => {
     e.preventDefault();
 
@@ -139,7 +127,8 @@ $('#delete-group').on('submit', async (e) => {
     try {
         let result = await request.deleteItem(action);
 
-        const id = action.match(/(\d+)/)[0];
+        const id = result['item-id'];
+
         deleteFromTable(
             id
         );

@@ -54,13 +54,17 @@ class Group extends Model
     {
         $data = parent::where(
             [
-                'groups.is_active' => true
+                'groups.is_active' => true,
             ]
         )
-        ->join('users', 'users.group_id', 'groups.id')
-        ->groupBy('groups.id')
-        ->select('groups.*', DB::raw('COUNT(users.id) as user_count'))
-        ->get();
+            ->where(
+                fn ($query) => $query->where('users.is_active', true)
+                    ->orWhereNull('users.is_active')
+            )
+            ->leftJoin('users', 'users.group_id', 'groups.id')
+            ->groupBy('groups.id')
+            ->select('groups.*', DB::raw('COUNT(users.id) as user_count'))
+            ->get();
 
         return $data;
     }

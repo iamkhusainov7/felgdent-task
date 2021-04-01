@@ -93,6 +93,7 @@ class UserController extends Controller
 
             return response()->json([
                 'message' => "User was deleted!",
+                'item-id'    => $user->id 
             ], 200);
         } catch (\Throwable $e) {
             return response()->json(

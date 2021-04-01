@@ -5,10 +5,12 @@ const table = $('#user-table').DataTable();
 $('#delete-user').on('submit', async (e) => {
     e.preventDefault();
     const action = e.delegateTarget.action;
+    
     try {
         let result = await request.deleteItem(action);
 
-        const id = action.match(/(\d+)/)[0];
+        const id = result['item-id'];
+
         deleteFromTable(
             id
         );

@@ -37,8 +37,11 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::middleware('admin')->group(function () {
-            Route::get('/group', 'CRUDController@index')->name('group.index');
+            Route::get('/group/{group}', 'CRUDController@show')->name('group.show');
         });
+
+        
+        Route::get('/group', 'CRUDController@index')->name('group.index');
     });
 
 

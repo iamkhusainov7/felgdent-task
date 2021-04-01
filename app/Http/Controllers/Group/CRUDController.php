@@ -6,7 +6,6 @@ use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GroupCRUDRequest as Request;
 use \Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 
 class CRUDController extends Controller
 {
@@ -147,6 +146,7 @@ class CRUDController extends Controller
 
             return response()->json([
                 'message' => "Group was deleted!",
+                'item-id'    => $group->id 
             ], 200);
         } catch (\Throwable $e) {
             return response()->json(
@@ -158,12 +158,5 @@ class CRUDController extends Controller
                 500
             );
         }
-    }
-
-    protected function getStudentsActivity(Collection $attendance)
-    {
-        $result = StudentActivityService::getStudentActivityReport($attendance);
-
-        return $result;
     }
 }
