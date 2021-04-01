@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Group extends Model
 {
@@ -55,7 +56,11 @@ class Group extends Model
             [
                 'groups.is_active' => true
             ]
-        )->get();
+        )
+        ->join('users', 'users.group_id', 'groups.id')
+        ->groupBy('groups.id')
+        ->select('groups.*', DB::raw('COUNT(users.id) as user_count'))
+        ->get();
 
         return $data;
     }
