@@ -14,6 +14,10 @@ class AlterUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->enum('role', [
+                'user',
+                'admin',
+            ]);
             $table->foreignId('group_id')
                 ->nullable()
                 ->constrained()
