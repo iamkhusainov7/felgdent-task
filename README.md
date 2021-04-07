@@ -15,7 +15,11 @@ npm run dev
 ```
 
 -   step 3: set up your .env file.
--   step 4. in the command line run to seed your database:
+-   step 4. Generate app key:
+```bash
+php artisan key:generate
+```
+-   step 5. in the command line run to seed your database:
 
 ```bash
 php artisan migrate
@@ -25,12 +29,12 @@ php artisan migrate
 php artisan db:seed --class=UserSeeder
 ```
 
--   step 5: in the command line run:
+-   step 6: in the command line run:
 
 ```bash
 php artisan serve
 ```
 
--   step 6. open your browser and follow the link showed in the console
--   step 7: You can use these credentials to login:
+-   step 7. open your browser and follow the link showed in the console
+-   step 8: You can use these credentials to login:
     email/login: `admin@local.com` | password: `admin123`
