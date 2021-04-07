@@ -18,6 +18,10 @@ npm run dev
 -   step 4. in the command line run to seed your database:
 
 ```bash
+php artisan migrate
+```
+
+```bash
 php artisan db:seed --class=UserSeeder
 ```
 
